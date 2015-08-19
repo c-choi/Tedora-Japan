@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, target-densitydpi=device-dpi">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="img/TEDORA-LOGO.jpg">
@@ -44,44 +44,74 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript">
-    $('body').scrollspy({target: '#navbar-scroll'})
-    </script>
-    <script type="text/javascript">
-    $('[data-spy="scroll"]').each(function () {
-  var $spy = $(this).scrollspy('refresh')})
-    </script>
+<script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.js">
+    $('body').scrollspy({target: '#navbar-scroll'});
 
-    <script> 
-  function confirmEnctype(){
- alert(document.getElementById("form").encoding);
- document.getElementById("form").encoding= "multipart/form-data";f
-}  </script>
+$('[data-spy="scroll"]').each(function () {
+  var $spy = $(this).scrollspy('refresh')
+})
+</script>
 
-  </head>
+<script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.js">
 
-  <body data-spy="scroll" data-target="#navbar-scroll" data-offset="300">
+$(document).ready(function() {
+  // navigation click actions 
+  $('#navbar-scroll').on('click', function(event){
+    event.preventDefault();
+    var sectionID = $(this).attr("data-id");
+    scrollToID('#' + sectionID, 750);
+  });
+  // scroll to top action
+  $('.scroll-top').on('click', function(event) {
+    event.preventDefault();
+    $('html, body').animate({scrollTop:0}, 'slow');     
+  });
+
+});
+// scroll function
+function scrollToID(id, speed){
+  var offSet = 50;
+  var targetOffset = $(id).offset().top - offSet;
+  var mainNav = $('#navbar-scroll');
+  $('html,body').animate({scrollTop:targetOffset}, speed);
+  if (mainNav.hasClass("open")) {
+    mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+    mainNav.removeClass("open");
+  }
+}
+if (typeof console === "undefined") {
+    console = {
+        log: function() { }
+    };
+}
+</script>
+
+</head>
+
+<body data-spy="scroll" data-target="#navbar-scroll">
            <div class="masthead clearfix" id="Tedora">
             <div class="inner">
-              <div class="masthead-navbar"  id="navbar-scroll">
+              <div class="masthead-navbar" id="navbar-scroll">
                 <ul class="nav masthead-nav" role="tablist">
-                  <li class="active"><a href="#Tedora">TEDORA</a></li>
-                 <li><a href="#Brand">ブランド</a></li>
-                <li><a href="#Products">商品</a></li>  
-                 
-                 <!--   <li><a href="#componsable">Componsable</a></li>
-                     <li><a href="#componsable">Push In</a></li>
-                      <li><a href="#componsable">Jewels</a></li>
-                     -->
-                  <li><a href="#Contact">問い合わせ</a></li>
+
+<li class="active"><a class="scroll-top" href="#top" data-id="Tedora"> TEDORA </a></li>
+
+<li><a class="scroll-link" data-id="Brand" href="#Brand"> ブランド </a></li>
+
+<li class="dropdown"><a data-id="Product" href="#Product" id="nav-toggle" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 商品 </a>
+<ul class="dropdown-menu">
+<li><a class="scroll-link" data-id="componsable" href="#componsable">Componsable</a></li>
+<li><a class="scroll-link" data-id="pushin" href="#pushin">Push In</a></li>
+<li><a class="scroll-link" data-id="jewels" href="#jewels">Jewels</a></li>
+                   </ul>
+</li>
+<li><a class="scroll-link" data-id="Contact" href="#Contact">問い合わせ</a></li>
                 </ul>
               </div>
             </div>
           </div>
 
-    <div class="container-fluid col-sm-12 col-lg-12 col-xs-12">
-              <img id="bg01" class="bg">
-    </div>
+<div id="bg01" class="bg"></div> 
 
     <div class="site-wrapper" id="Brand">
       <div class="site-wrapper-inner">
@@ -107,45 +137,47 @@
       </div>
 <table>
 <br>
-        <div class="cover-container" id="componsable">
+        <div class="cover-container">
           <div class="inner cover">
             <h2 class="cover-heading">Componsable</h2>
-            <p class="lead">・ Beads, Charms, Stoppers, Bases</p>
+            <p class="lead" id="componsable">・ Beads, Charms, Stoppers, Bases</p>
+             
           </div>
         </div>
+      <div class="container-fluid col-sm-12 col-lg-12 col-xs-12"><img id="pgimg" src="img/co.jpg"></div>
 </br>
 <br>
-       <div class="container-fluid col-sm-12 col-lg-12 col-xs-12"><img id="pgimg" src="img/co.jpg"></div>
-</br>
-<br>        
-        <div class="cover-container" id="pushin">
+      
+        <div class="cover-container">
           <div class="inner cover">
             <h2 class="cover-heading">Push In</h2>
-            <p class="lead">・ Chunks, Bases</p>
+            <p class="lead" id="pushin">・ Chunks, Bases</p>
+                
           </div>
         </div>
+ <div class="container-fluid col-sm-12 col-lg-12 col-xs-12"><img id="pgimg" src="img/pu.jpg"></div>
 </br>
 <br>
-       <div class="container-fluid col-sm-12 col-lg-12 col-xs-12"><img id="pgimg" src="img/pi.jpg"></div>
-
-</br>
-<br>
-        <div class="cover-container" id="jewels">
+        <div class="cover-container">
           <div class="inner cover">
             <h2 class="cover-heading">Jewels</h2>
-            <p class="lead">・ Military, Pirate</p>
+            <p class="lead" id="jewels">・ Military, Pirate</p>
+                 
           </div>
         </div>
 
-       <div class="container-fluid col-sm-12 col-lg-12 col-xs-12"><img id="pgimg" src="img/pu.jpg"></div>
+  <div class="container-fluid col-sm-12 col-lg-12 col-xs-12">
+      <img id="pgimg" src="img/pi.jpg">
+                </div>
+
 </br>
+<br>
+</br>  
 </table>
       </div>
     </div>
 
-    <div class="container-fluid col-sm-12 col-lg-12 col-xs-12">
-    <div id="bg02" class="bg">
-    </div></div>
+<div id="bg02" class="bg"></div>
 
         <div class="site-wrapper" id="Contact">
       <div class="site-wrapper-inner">
@@ -165,7 +197,7 @@
 
         <div class="cover-container">
           <div class="inner cover">              
-<br></br>
+
 <form id="form1" name="form1" class="contact-form" method="post">
 <div class="form-group col-xs-12 col-sm-12 col-mid-12
 ">
@@ -215,12 +247,12 @@
   </div>
 
 </form>
-
-        </div>
       </div>
+
+    </div>
     </div>
 
-         <div class="mastfoot">
+         <div class="mastfoot hidden-xs hidden-sm">
 
             <div class="inner">
               <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
