@@ -60,6 +60,7 @@ body {
 
 /* images */
 .bg {
+    background-repeat: no-repeat;
     position: relative;
     top: 0;
     width: 100%;
