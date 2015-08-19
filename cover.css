@@ -27,14 +27,12 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+  background-color: #fff;
   width:100%;
 }
 body {
-  color: #fff;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
-
+  position:relative;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -58,11 +56,13 @@ body {
   margin-right: auto;
   margin-left: auto;
 }
+
+/* images */
 .bg {
   width:100%;
   height:auto;
   height:800px;
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   position:relative;
   background-attachment: fixed;
@@ -75,17 +75,33 @@ body {
 }
 #bg02 {
   background-image: url(img/model2.jpg);
+
 }
 #bg03 {
   background-image: url(img/bn4.jpg);
+}
+#pgimg {
+  width:100%;
+  position: relative;
+  float: left;
+}
+.title {
+  float: left;
+  margin: 3%;
+  display: block;
+  position: relative;
 }
 
 /* Padding for spacing */
 .inner {
   padding: 30px;
   text-align: right;
+  position: relative;
 }
-
+.form-group {
+  float: left;
+  position:relative;
+}
 
 /*
  * Header
@@ -95,6 +111,8 @@ body {
   z-index: 1;
   position: fixed;
   width: 100% !important;
+  text-shadow: 0 2px 3px rgba(0,0,0,.8);
+
 }
 .masthead-nav > li {
   display: inline-block;
@@ -117,13 +135,13 @@ body {
 .masthead-nav > li > a:focus {
   background-color: transparent;
   border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255,255,255,.25);
+  border-bottom-color: green;
 }
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
   color: #fff;
-  border-bottom-color: #fff;
+  border-bottom-color: red;
 }
 
 @media (min-width: 768px) {
@@ -145,21 +163,41 @@ body {
 
 .cover {
   padding: 0 20px;
+  text-align: left;
 }
 .cover .btn-lg {
   padding: 10px 20px;
   font-weight: bold;
 }
+.cover-heading {
+    color:grey;
+    text-shadow: 2px 4px 5px rgba(0,0,0,.3);
+}
+.lead {
+   color:silver;
+}
 .site-wrapper {
   margin:0px;
 }
-.inner>img {
-  max-width:60%;
-  width: auto;
-  position: relative;
-  float: left;
-  margin-top: 0px;
-  margin-bottom: 10px !important; 
+#Contact {
+  height: 90%
+}
+.contact-form {
+  padding-bottom: 0px;
+  margin-top: 30px;
+}
+.link-btn>a {
+  width: 100%;
+  font-weight: bold;
+  float:center;
+  background-color: lightgrey;
+}
+.link-btn > a:hover,
+.link-btn > a:focus,
+#submit:hover,
+#submit:focus {
+  background-color: darkred;
+  color: white;
 }
 /*
  * Footer
@@ -175,7 +213,7 @@ body {
  * Affix and center
  */
 
-@media (min-width: 150px) {
+@media (min-width: 100px) {
   /* Pull out the header and footer */
   .masthead {
     position: fixed;
@@ -184,12 +222,6 @@ body {
   .mastfoot {
     position: fixed;
     bottom: 0;
-  }
-  .bg {
-    height:30%;
-    max-height: 80%;
-    min-height: 150px;
-    margin-bottom: 1px;
   }
   /* Start the vertical centering */
   .site-wrapper-inner {
@@ -203,7 +235,10 @@ body {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
   .site-wrapper {
-    height: 70%;
+    height: 30%;
+  }
+  .bg {
+    width:100%;
   }
 }
 @media (min-width: 768px) {
@@ -242,7 +277,7 @@ body {
   .cover-container {
     width: 700px;
   }
-    .bg {
+  .bg {
     height:30%;
     min-height: 800px;
     margin-bottom: 1px;
