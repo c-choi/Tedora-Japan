@@ -54,6 +54,12 @@ $('[data-spy="scroll"]').each(function () {
 
 <script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.js">
 
+  // scroll to top action
+  $('.scroll-top').on('click', function(event) {
+    event.preventDefault();
+    $('html, body').animate({scrollTop:0}, 'slow');     
+  });
+
 $(document).ready(function() {
   // navigation click actions 
   $('#navbar-scroll').on('click', function(event){
@@ -61,19 +67,14 @@ $(document).ready(function() {
     var sectionID = $(this).attr("data-id");
     scrollToID('#' + sectionID, 750);
   });
-  // scroll to top action
-  $('.scroll-top').on('click', function(event) {
-    event.preventDefault();
-    $('html, body').animate({scrollTop:0}, 'slow');     
-  });
 
 });
 // scroll function
 function scrollToID(id, speed){
   var offSet = 50;
-  var targetOffset = $(id).offset().top - offSet;
+  var targetOffset = $(id).offset().top - OffSet;
   var mainNav = $('#navbar-scroll');
-  $('html,body').animate({scrollTop:targetOffset}, speed);
+  $('html,body').animate({scrollTop:targetOffset}, 'slow');
   if (mainNav.hasClass("open")) {
     mainNav.css("height", "1px").removeClass("in").addClass("collapse");
     mainNav.removeClass("open");
@@ -89,16 +90,16 @@ if (typeof console === "undefined") {
 </head>
 
 <body data-spy="scroll" data-target="#navbar-scroll">
-           <div class="masthead clearfix" id="Tedora">
+           <div class="masthead clearfix">
             <div class="inner">
               <div class="masthead-navbar" id="navbar-scroll">
                 <ul class="nav masthead-nav" role="tablist">
 
-<li class="active"><a class="scroll-top" href="#top" data-id="Tedora"> TEDORA </a></li>
+<li class="active"><a class="scroll-top" href="#Tedora" data-id="Tedora"> TEDORA </a></li>
 
 <li><a class="scroll-link" data-id="Brand" href="#Brand"> ブランド </a></li>
 
-<li class="dropdown"><a data-id="Product" href="#Product" id="nav-toggle" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 商品 </a>
+<li class="dropdown-submenu"><a tabindex="-1" data-id="Product" href="#Product" id="nav-toggle" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 商品 </a>
 <ul class="dropdown-menu">
 <li><a class="scroll-link" data-id="componsable" href="#componsable">Componsable</a></li>
 <li><a class="scroll-link" data-id="pushin" href="#pushin">Push In</a></li>
@@ -110,9 +111,9 @@ if (typeof console === "undefined") {
               </div>
             </div>
           </div>
-
+<div id="Tedora">
 <div id="bg01" class="bg"></div> 
-
+</div>
     <div class="site-wrapper" id="Brand">
       <div class="site-wrapper-inner">
       <div class="title">

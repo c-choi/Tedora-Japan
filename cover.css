@@ -150,8 +150,9 @@ body {
   box-shadow: none;
 }
 .dropdown-menu>li>a {
-  color:white;
+  color:silver;
     text-shadow: 0 2px 3px rgba(0,0,0,.8);
+  background-color: transparent !important;
 }
 .dropdown-menu>.active>a {
   background-color: transparent !important;
@@ -160,6 +161,12 @@ body {
   color: red;
 }
 
+.dropdown-submenu:hover>.dropdown-menu{
+  display:block;
+}
+.dropdown-menu .scroll-link:hover {
+  color:white !important;
+}
 @media (min-width: 768px) {
   .masthead-brand {
     float: left;
