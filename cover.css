@@ -310,6 +310,14 @@ body {
   background-image: url(img/model2.jpg);
 }
 }
+  .bg {
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    padding: none !important;
+    margin: none;
+  }
 
 @media (min-width: 992px) {
   .masthead,
