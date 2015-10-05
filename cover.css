@@ -221,6 +221,7 @@ body {
   font-weight: bold;
   float:center;
   background-color: lightgrey;
+  display: inline-block;
 }
 .link-btn > a:hover,
 .link-btn > a:focus,
